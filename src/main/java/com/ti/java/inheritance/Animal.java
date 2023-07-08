@@ -1,6 +1,7 @@
 package com.ti.java.inheritance;
 
 public class Animal {
+
     public String name;
     private int age;
 
@@ -28,7 +29,7 @@ public class Animal {
         System.out.println("Walking!!");
     }
 
-    void drinkWater() {
+    public void drinkWater() {
         System.out.println("I'm drinking water!");
     }
 
