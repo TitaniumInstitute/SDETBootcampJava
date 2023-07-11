@@ -2,6 +2,7 @@ package com.ti.java.streams;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class TestFunctional {
@@ -57,9 +58,22 @@ public class TestFunctional {
         //.ifPresent(System.out::println);
 
         people.stream()
-                .min(Comparator.comparing(Person::getAge))
-                .ifPresent(System.out::println);
+                .min(Comparator.comparing(Person::getAge));
+        //.ifPresent(System.out::println);
 
+        Map<Gender, List<Person>> groupGender = people.stream()
+                .collect(Collectors.groupingBy(Person::getGender));
+
+        /*groupGender.forEach(((gender, people1) -> {
+            System.out.println(gender);
+            people1.forEach(System.out::println);
+        }));*/
+
+        people.stream()
+                .filter(person -> person.getGender().equals(Gender.FEMALE))
+                .max(Comparator.comparing(Person::getAge))
+                .map(Person::getAge)
+                .ifPresent(System.out::println);
     }
 
     private static List<Person> getSuperPeople() {
