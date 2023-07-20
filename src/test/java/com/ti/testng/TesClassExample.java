@@ -1,10 +1,9 @@
 package com.ti.testng;
 
-import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class AnnotationsExample {
-
+@Test(description = "Test class for banking accounts")
+public class TesClassExample {
     @BeforeSuite
     void beforeSuite() {
         System.out.println("Esto se ejecuta ANTES de la suite");
@@ -40,29 +39,20 @@ public class AnnotationsExample {
         System.out.println("Esto se ejecuta DESPUÉS de la primer prueba que encuentre");
     }
 
-    @AfterSuite(description = "todo se derrumbó")
+    @AfterSuite
     void afterSuite() {
         System.out.println("Esto se ejecuta DESPUÉS de la suite");
     }
 
-    @Test(description = "test sobre agregar usuario")
-    void testSz() {
-        System.out.println("Este es un test para probar un método de suma");
+    public void testA() {
+        System.out.println("Test A");
     }
 
-    @Test(description = "Test description", dependsOnMethods = {"testSa", "testSo"})
-    void testSq() {
-        System.out.println("Este es un test para probar un método de suma");
+    public void testB() {
+        System.out.println("Test B");
     }
 
-    @Test(description = "test sobre borrar usuario")
-    void testSa() {
-        System.out.println("Este es un test para probar un método de suma");
-    }
-
-    @Test
-    void testSo() {
-        System.out.println("Este es un test para probar un método de resta");
-        Assert.assertTrue(false);
+    public void testC() {
+        System.out.println("Test C");
     }
 }
