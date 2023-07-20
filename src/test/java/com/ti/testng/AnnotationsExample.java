@@ -3,6 +3,8 @@ package com.ti.testng;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.io.IOException;
+
 public class AnnotationsExample {
 
     @BeforeSuite
@@ -45,24 +47,47 @@ public class AnnotationsExample {
         System.out.println("Esto se ejecuta DESPUÉS de la suite");
     }
 
-    @Test(description = "test sobre agregar usuario")
+    @Test(priority = 2, description = "")
     void testSz() {
         System.out.println("Este es un test para probar un método de suma");
     }
 
-    @Test(description = "Test description", dependsOnMethods = {"testSa", "testSo"})
+    @Test(enabled = false, description = "")
     void testSq() {
         System.out.println("Este es un test para probar un método de suma");
     }
 
-    @Test(description = "test sobre borrar usuario")
+    @Test(enabled = false)
     void testSa() {
         System.out.println("Este es un test para probar un método de suma");
     }
 
-    @Test
+    @Test(enabled = false)
     void testSo() {
         System.out.println("Este es un test para probar un método de resta");
         Assert.assertTrue(false);
+    }
+
+    @Test(priority = 2, expectedExceptions = {IOException.class, ArithmeticException.class, Exception.class})
+    void testExpectedException() throws Exception {
+        System.out.println("Any Exception found!");
+        throw new Exception();
+    }
+
+    @Test(priority = 10, invocationCount = 5)
+    void testInvocationCount() {
+        System.out.println("Este método se ejecuta");
+    }
+
+    @Test(priority = 3, timeOut = 500)
+    void testAPITime() throws InterruptedException {
+        Thread.sleep(1000);
+        System.err.println("No se cumple el tiempo");
+    }
+
+    @Test(priority = 3, timeOut = 500)
+    void testAPITimeB() throws InterruptedException {
+        Thread.sleep(400);
+        System.out.println("Si se cumple el tiempo");
     }
 }
