@@ -68,6 +68,20 @@ public class AnnotationsExample {
         Assert.assertTrue(false);
     }
 
+    @Test(priority = 1)
+    void testDiv() {
+        Assert.assertEquals(div(10, 2), 5, "division failed!");
+    }
+
+    @Test(priority = 1, expectedExceptions = ArithmeticException.class)
+    void testExpectedExceptionDivZero() throws Exception {
+        Assert.assertEquals(div(10, 0), 1);
+    }
+
+    public int div(int num1, int num2) {
+        return num1 / num2;
+    }
+
     @Test(priority = 2, expectedExceptions = {IOException.class, ArithmeticException.class, Exception.class})
     void testExpectedException() throws Exception {
         System.out.println("Any Exception found!");
