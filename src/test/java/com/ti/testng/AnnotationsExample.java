@@ -27,6 +27,11 @@ public class AnnotationsExample {
         System.out.println("Esto se ejecuta ANTES de cada MÉTODO de prueba en mi clase");
     }
 
+    @BeforeMethod
+    void beforeMethod2() {
+        System.out.println("soy otro before method, solito");
+    }
+
     @AfterMethod
     void afterMethod() {
         System.out.println("Esto se ejecuta DESPUÉS de cada MÉTODO de prueba en mi clase");
@@ -73,7 +78,7 @@ public class AnnotationsExample {
         Assert.assertEquals(div(10, 2), 5, "division failed!");
     }
 
-    @Test(priority = 1, expectedExceptions = ArithmeticException.class)
+    @Test(expectedExceptions = ArithmeticException.class)
     void testExpectedExceptionDivZero() throws Exception {
         Assert.assertEquals(div(10, 0), 1);
     }

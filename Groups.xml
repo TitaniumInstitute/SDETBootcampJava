@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="Groups">
+        <groups>
+            <define name="Sprint13">
+                <include name="backlog"/>
+                <include name="defects"/>
+                <include name="smoke"/>
+            </define>
+
+            <run>
+                <include name="backlog"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ti.testng.Groups"></class>
+        </classes>
+    </test>
+</suite>
