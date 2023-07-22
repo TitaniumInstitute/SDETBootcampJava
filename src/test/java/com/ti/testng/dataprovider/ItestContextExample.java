@@ -13,7 +13,7 @@ public class ItestContextExample {
         System.out.println(name4);
     }
 
-    @Test(dataProvider = "getBookData", dataProviderClass = TestData.class, groups = "Smoke")
+    @Test(enabled = false, dataProvider = "getBookData", dataProviderClass = TestData.class, groups = "Smoke")
     void dataProviderItestSmoke(String title, String author, String year, String type) {
         System.out.println(title);
         System.out.println(author);
@@ -21,8 +21,22 @@ public class ItestContextExample {
         System.out.println(type);
     }
 
-    @Test(dataProvider = "getBookData", dataProviderClass = TestData.class, groups = "Regression")
+    @Test(enabled = false, dataProvider = "getBookData", dataProviderClass = TestData.class, groups = "Regression")
     void dataProviderItestRegression(String title, String author) {
+        System.out.println(title);
+        System.out.println(author);
+    }
+
+    @Test(dataProvider = "getBookMethodData", dataProviderClass = TestData.class, groups = "Smoke")
+    void verifyBookCompleteInfo(String title, String author, String year, String type) {
+        System.out.println(title);
+        System.out.println(author);
+        System.out.println(year);
+        System.out.println(type);
+    }
+
+    @Test(dataProvider = "getBookMethodData", dataProviderClass = TestData.class, groups = "Regression")
+    void verifyBookNameAndAuthor(String title, String author) {
         System.out.println(title);
         System.out.println(author);
     }
