@@ -39,9 +39,9 @@ public class ListenerExample {
     @DataProvider
     Object[][] parametersToBeSent() {
         return new Object[][]{
-                {"param1"},
-                {"param2"},
-                {"param3"}
+                {"GET"},
+                {"POST"},
+                {"DELETE"}
         };
     }
 }
