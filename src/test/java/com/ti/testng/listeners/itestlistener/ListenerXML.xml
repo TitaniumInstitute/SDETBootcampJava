@@ -2,9 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <!--<listener class-name="com.ti.testng.listeners.itestlistener.ItestExecutionExample"></listener>
-        <listener class-name="com.ti.testng.listeners.itestlistener.ItestListenerExample"></listener>-->
-        <listener class-name="com.ti.testng.listeners.itestlistener.IhookableListenerExample"></listener>
+        <listener class-name="com.ti.testng.listeners.itestlistener.ItestExecutionExample"></listener>
+        <listener class-name="com.ti.testng.listeners.itestlistener.ItestListenerExample"></listener>
     </listeners>
     <test name="ItestReporter">
         <classes>
