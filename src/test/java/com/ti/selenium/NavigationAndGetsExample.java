@@ -30,7 +30,7 @@ public class NavigationAndGetsExample {
         System.out.println(String.format("The Web page title is %s", driver.getTitle()));
         System.out.println(String.format("The URL is %s", driver.getCurrentUrl()));
 
-        wait(2);
+         wait(2);
 
         driver.get(demoSiteUrl);
 
