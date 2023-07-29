@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import java.time.Duration;
+
 public class BaseTestClass {
     protected WebDriver driver;
     String demoSiteUrl = "https://demosite.titaniuminstitute.com.mx/wp-admin/admin.php?page=sch-dashboard";
@@ -16,6 +18,8 @@ public class BaseTestClass {
     void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
     }
 
     @AfterTest
