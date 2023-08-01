@@ -18,6 +18,7 @@ public class ExplicitWaitExample extends BaseTestClass {
 
     @Test
     void explicitTest() {
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.navigate().to(demoSiteUrl);
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
