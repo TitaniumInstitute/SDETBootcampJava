@@ -8,12 +8,12 @@ import org.testng.annotations.BeforeTest;
 
 public class BaseTestClass {
     protected WebDriver driver;
-    String demoSiteUrl = "https://demosite.titaniuminstitute.com.mx/wp-admin/admin.php?page=sch-dashboard";
+    protected String demoSiteUrl = "https://demosite.titaniuminstitute.com.mx/wp-admin/admin.php?page=sch-dashboard";
     String username = "admin";
     String password = "G3-ySzY%";
 
     @BeforeTest
-    void setup() {
+    public void setup() {
         //WebDriverManager.edgedriver().setup();
         //WebDriverManager.firefoxdriver().setup();
         WebDriverManager.chromedriver().setup();
@@ -24,7 +24,7 @@ public class BaseTestClass {
     }
 
     @AfterTest
-    void turnDown() {
+    public void turnDown() {
         driver.quit();
     }
 
