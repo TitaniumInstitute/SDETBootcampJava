@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 public class BaseTestClass {
@@ -15,7 +15,7 @@ public class BaseTestClass {
     String username = "admin";
     String password = "G3-ySzY%";
 
-    @BeforeSuite
+    @BeforeTest
     @Parameters("browser")
     public void setup(String browser) {
         switch (browser) {
@@ -37,7 +37,7 @@ public class BaseTestClass {
         driver.manage().window().maximize();
     }
 
-    @AfterSuite
+    @AfterTest
     public void turnDown() {
         driver.quit();
     }

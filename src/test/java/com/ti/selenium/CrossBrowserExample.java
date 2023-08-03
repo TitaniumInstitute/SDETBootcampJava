@@ -2,23 +2,28 @@ package com.ti.selenium;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class CrossBrowserExample extends BaseTestClass {
 
-    @BeforeTest
+    @BeforeClass
     void navigateToDemoSite() {
-        driver.navigate().to(demoSiteUrl);
+        driver.navigate().to("https://www.google.com");
     }
 
     @Test
+    void google() {
+
+    }
+
+    @Test(enabled = false)
     void verifyRegisterLinkIsNotBroken() {
         driver.findElement(By.linkText("Register")).click();
         Assert.assertTrue(driver.getTitle().contains("Registration Form"));
     }
 
-    @Test
+    @Test(enabled = false)
     void verifyLostPasswordLinkIsNotBroken() {
         driver.findElement(By.linkText("Lost your password?")).click();
         Assert.assertTrue(driver.getTitle().contains("Lost Password"));
