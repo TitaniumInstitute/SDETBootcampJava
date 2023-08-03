@@ -12,11 +12,6 @@ public class CrossBrowserExample extends BaseTestClass {
         driver.navigate().to("https://www.google.com");
     }
 
-    @Test
-    void google() {
-
-    }
-
     @Test(enabled = false)
     void verifyRegisterLinkIsNotBroken() {
         driver.findElement(By.linkText("Register")).click();
