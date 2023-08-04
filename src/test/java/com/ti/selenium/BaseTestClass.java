@@ -1,9 +1,8 @@
 package com.ti.selenium;
 
+import com.ti.base.BrowserType;
+import com.ti.base.DriverFactory;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -17,28 +16,13 @@ public class BaseTestClass {
     @BeforeTest
     @Parameters("browser")
     public void setup(String browser) {
-        switch (browser) {
-            case "Chrome" -> {
-                //WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-            }
-            case "Edge" -> {
-                //WebDriverManager.edgedriver().setup();
-                driver = new EdgeDriver();
-            }
-            case "Firefox" -> {
-                //WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
-            }
-            default -> System.err.println("Browser is not listed!");
-        }
-
-        driver.manage().window().maximize();
+        DriverFactory.getInstance().setDriver(BrowserType.valueOf(browser));
+        driver = DriverFactory.getInstance().getDriver();
     }
 
     @AfterTest
     public void turnDown() {
-        driver.quit();
+        DriverFactory.getInstance().removeDriver();
     }
 
     void wait(int seg) {

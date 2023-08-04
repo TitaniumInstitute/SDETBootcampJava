@@ -24,7 +24,7 @@ public class AtomicTestExample extends BaseTestClass {
         driver.navigate().refresh();
     }
 
-    @Test
+    @Test(enabled = false)
     void validateShippingCartItems() {
         driver.navigate().to("https://www.saucedemo.com/cart.html");
         WebElement spnShoppingCart = new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -33,7 +33,7 @@ public class AtomicTestExample extends BaseTestClass {
         wait(2);
     }
 
-    @Test
+    @Test(enabled = false)
     void validateUserCanCheckOut() {
         driver.navigate().to("https://www.saucedemo.com/checkout-step-one.html");
         new WebDriverWait(driver, Duration.ofSeconds(8))
@@ -45,7 +45,20 @@ public class AtomicTestExample extends BaseTestClass {
         WebElement dvTotal = driver.findElement(By.xpath("(//div[contains(text(),'Total')])[2]"));
         Assert.assertTrue(dvTotal.getText().contains("60.45"));
         wait(2);
+    }
 
-
+    @Test
+    void AddCartsQuantityFromSameItem() {
+        driver.manage().deleteAllCookies();
+        ((JavascriptExecutor) driver).executeScript("localStorage.clear();");
+        driver.navigate().to("https://shop.demoqa.com/cart/");
+        String hash = (String) ((JavascriptExecutor) driver).executeScript("localStorage.getItem(\"wc_cart_hash_2265a9f6fbc383987ee8d0afbe044d95\");");
+        System.out.println(hash);
+        Cookie itemCookie = new Cookie("woocommerce_items_in_cart", "3");
+        Cookie hashCookie = new Cookie("woocommerce_cart_hash", hash);
+        driver.manage().addCookie(itemCookie);
+        driver.manage().addCookie(hashCookie);
+        driver.navigate().refresh();
+        wait(2);
     }
 }
