@@ -1,4 +1,4 @@
-package com.ti.selenium;
+package com.ti.selenium.commands;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;

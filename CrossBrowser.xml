@@ -4,21 +4,21 @@
     <test name="Chrome Test">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="com.ti.selenium.CrossBrowserExample"></class>
+            <class name="com.ti.selenium.commands.CrossBrowserExample"></class>
         </classes>
     </test>
 
     <test name="Edge Test">
         <parameter name="browser" value="Edge"/>
         <classes>
-            <class name="com.ti.selenium.CrossBrowserExample"></class>
+            <class name="com.ti.selenium.commands.CrossBrowserExample"></class>
         </classes>
     </test>
 
     <test name="Firefox Test">
         <parameter name="browser" value="Firefox"/>
         <classes>
-            <class name="com.ti.selenium.CrossBrowserExample"></class>
+            <class name="com.ti.selenium.commands.CrossBrowserExample"></class>
         </classes>
     </test>
 </suite>

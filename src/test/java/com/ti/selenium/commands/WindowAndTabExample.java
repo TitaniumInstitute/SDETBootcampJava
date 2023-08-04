@@ -1,4 +1,4 @@
-package com.ti.selenium;
+package com.ti.selenium.commands;
 
 import org.openqa.selenium.WindowType;
 import org.testng.annotations.Test;

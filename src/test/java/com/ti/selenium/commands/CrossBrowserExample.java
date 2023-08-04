@@ -1,4 +1,4 @@
-package com.ti.selenium;
+package com.ti.selenium.commands;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;

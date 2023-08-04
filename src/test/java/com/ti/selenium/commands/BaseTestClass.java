@@ -1,4 +1,4 @@
-package com.ti.selenium;
+package com.ti.selenium.commands;
 
 import com.ti.base.BrowserType;
 import com.ti.base.DriverFactory;

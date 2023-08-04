@@ -4,7 +4,7 @@
     <test name="Chrome Test">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="com.ti.selenium.AtomicTestExample"></class>
+            <class name="com.ti.selenium.commands.AtomicTestExample"></class>
         </classes>
     </test>
 </suite>
