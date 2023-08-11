@@ -4,7 +4,7 @@
     <test name="Chrome Test">
         <parameter name="browser" value="CHROME"/>
         <classes>
-            <class name="com.ti.selenium.patronesdediseño.testcases.TestClass"></class>
+            <class name="com.ti.selenium.patronesdediseño.testcases.StudentsTest"></class>
         </classes>
     </test>
 </suite>
