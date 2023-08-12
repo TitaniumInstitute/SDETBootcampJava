@@ -11,7 +11,7 @@ public class StudentsTest extends BaseTest {
     Map<String, String> studentAccountInfo = new HashMap<>();
 
     @Test
-    void verifyNEwStudentIsCreated() {
+    void verifyNewStudentIsCreated() {
         studentAccountInfo.put("email", "test" + Math.random() + "@gmail.com");
         studentAccountInfo.put("user", "testuser");
         studentAccountInfo.put("password", "test123");

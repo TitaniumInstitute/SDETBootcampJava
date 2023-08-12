@@ -5,6 +5,7 @@
         <parameter name="browser" value="CHROME"/>
         <classes>
             <class name="com.ti.selenium.patronesdediseño.testcases.StudentsTest"></class>
+            <class name="com.ti.selenium.patronesdediseño.testcases.LoginTest"></class>
         </classes>
     </test>
 </suite>

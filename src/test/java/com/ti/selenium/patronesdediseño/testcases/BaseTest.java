@@ -2,11 +2,12 @@ package com.ti.selenium.patronesdediseño.testcases;
 
 import com.ti.base.BrowserType;
 import com.ti.base.DriverFactory;
-import com.ti.selenium.patronesdediseño.pagespom.LoginPage;
-import com.ti.selenium.patronesdediseño.pagespom.MenuPage;
-import com.ti.selenium.patronesdediseño.pagespom.StudentPage;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import com.ti.selenium.patronesdediseño.pf.LoginPage;
+import com.ti.selenium.patronesdediseño.pf.MenuPage;
+import com.ti.selenium.patronesdediseño.pf.StudentPage;
+import org.openqa.selenium.TimeoutException;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import java.util.HashMap;
@@ -19,7 +20,7 @@ public class BaseTest {
     MenuPage menuPage;
     StudentPage studentPage;
 
-    @BeforeTest
+    @BeforeClass
     @Parameters("browser")
     void setup(String browser) {
         DriverFactory.getInstance().setDriver(BrowserType.valueOf(browser));
@@ -35,9 +36,13 @@ public class BaseTest {
         loginPage.login(userCredentials.get("username"), userCredentials.get("password"));
     }
 
-    @AfterTest
+    @AfterClass
     void turnDown() {
-        studentPage.deleteStudent();
+        try {
+            studentPage.deleteStudent();
+        } catch (TimeoutException te) {
+
+        }
         DriverFactory.getInstance().removeDriver();
     }
 
