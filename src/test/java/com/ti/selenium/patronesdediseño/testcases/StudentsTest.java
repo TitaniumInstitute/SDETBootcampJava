@@ -16,12 +16,29 @@ public class StudentsTest extends BaseTest {
         studentAccountInfo.put("user", "testuser");
         studentAccountInfo.put("password", "test123");
 
+        menuPage.goToStudents().andCreateNew();
 
-        menuPage.clickStudentMenu();
-        studentPage.clickCreateNew();
-        studentPage.studentPersonalDetails(studentPersonalDetailsData);
-        studentPage.accountInformation(studentAccountInfo);
+        //Student Personal Details
+        studentPage
+                .genderAs(studentPersonalDetailsData[0])
+                .withFirstName(studentPersonalDetailsData[1])
+                .andLastName(studentPersonalDetailsData[2])
+                .withDayOfBirth(studentPersonalDetailsData[3])
+                .andSelectCountry(studentPersonalDetailsData[4])
+                .andCurrentAddress(studentPersonalDetailsData[5]);
+
+
+        //Student Account Information
+        studentPage
+                .emailAddressAs(studentAccountInfo.get("email"))
+                .withUserName(studentAccountInfo.get("user"))
+                .withPassword(studentAccountInfo.get("password"))
+                .andConfirmPassword(studentAccountInfo.get("password"));
+
+        //Student School Details
         studentPage.schoolDetails("B-0012");
+
+        //Validate
         studentPage.validateStudentIsAdded(studentPersonalDetailsData[1]);
     }
 }

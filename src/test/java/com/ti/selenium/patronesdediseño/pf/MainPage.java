@@ -31,33 +31,49 @@ public class MainPage {
         PageFactory.initElements(driver, this);
     }
 
-    private String getSchoolName() {
+    protected void type(WebElement element, String strType) {
+        element.clear();
+        element.sendKeys(strType);
+    }
+
+    protected String getElementText(WebElement element) {
+        /*String text = "";
+        text = element.getTagName().equals("input")?element.getAttribute("value"):element.getText();
+        return text;*/
+        return element.getTagName().equals("input") ? element.getAttribute("value") : element.getText();
+    }
+
+    public String getSchoolName() {
         return spnSchoolTitle.getText();
     }
 
-    public void verifySchoolName() {
+    public MainPage verifySchoolName() {
         Assert.assertEquals(getSchoolName(), "Titanium School");
+        return this;
     }
 
-    public void clickCreateNew() {
+    public MainPage andCreateNew() {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(btnCreateNew));
         btnCreateNew.click();
+        return this;
     }
 
-    protected void deleteRow() {
+    public MainPage deleteLastRow() {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfAllElements(icnTrashes));
         WebElement delete = icnTrashes.get(icnTrashes.size() - 1);
         delete.click();
+        return this;
     }
 
-    protected void confirmWindow() {
+    public MainPage andConfirmWindow() {
         new WebDriverWait(driver, Duration.ofSeconds(8))
                 .until(ExpectedConditions.elementToBeClickable(btoOk));
         btoOk.click();
 
         new WebDriverWait(driver, Duration.ofSeconds(8))
                 .until(ExpectedConditions.invisibilityOf(btoOk));
+        return this;
     }
 }

@@ -33,13 +33,17 @@ public class BaseTest {
         menuPage = new MenuPage();
         studentPage = new StudentPage();
 
-        loginPage.login(userCredentials.get("username"), userCredentials.get("password"));
+        loginPage
+                .loginAs(userCredentials.get("username"))
+                .withPassword(userCredentials.get("password"))
+                .andRememberMe(true)
+                .login();
     }
 
     @AfterClass
     void turnDown() {
         try {
-            studentPage.deleteStudent();
+            studentPage.deleteLastRow().andConfirmWindow();
         } catch (TimeoutException te) {
 
         }

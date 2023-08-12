@@ -18,30 +18,28 @@ public class LoginPage extends MainPage {
     @FindBy(xpath = "//input[contains(@value,'Log')]")
     private WebElement btnLogin;
 
-    private void typeUsername(String username) {
+    public LoginPage loginAs(String username) {
         txtUsername.clear();
         txtUsername.sendKeys(username);
+        return this;
     }
 
-    private void typePassword(String password) {
+    public LoginPage withPassword(String password) {
         txtPassword.clear();
         txtPassword.sendKeys(password);
+        return this;
     }
 
-    private void checkRememberMe() {
-        chkRememberMe.click();
+    public LoginPage andRememberMe(boolean checked) {
+        if (checked) {
+            chkRememberMe.click();
+        }
+        return this;
     }
 
-    private void clickLogin() {
+    public LoginPage login() {
         btnLogin.click();
+        return this;
     }
-
-    public void login(String username, String password) {
-        typeUsername(username);
-        typePassword(password);
-        checkRememberMe();
-        clickLogin();
-    }
-
 
 }

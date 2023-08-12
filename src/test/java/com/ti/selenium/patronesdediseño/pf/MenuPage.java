@@ -7,7 +7,8 @@ public class MenuPage extends MainPage {
     @FindBy(linkText = "Students")
     private WebElement navStudents;
 
-    public void clickStudentMenu() {
+    public MenuPage goToStudents() {
         navStudents.click();
+        return this;
     }
 }

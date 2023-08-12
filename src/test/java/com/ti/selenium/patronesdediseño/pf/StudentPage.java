@@ -9,7 +9,6 @@ import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.Map;
 
 public class StudentPage extends MainPage {
     @FindBy(name = "s_gender")
@@ -39,7 +38,7 @@ public class StudentPage extends MainPage {
     @FindBy(xpath = "//tr[@role='row']")
     private List<WebElement> trStudentRows;
 
-    private void selectGender(String gender) {
+    public StudentPage genderAs(String gender) {
         //cambiarlo a Map
         for (WebElement optGender : rdnGenders) {
             if (optGender.getAttribute("id").equals(gender)) {
@@ -47,23 +46,21 @@ public class StudentPage extends MainPage {
                 break;
             }
         }
+        return this;
     }
 
-    private void type(WebElement element, String strType) {
-        element.clear();
-        element.sendKeys(strType);
-    }
-
-    private void typeFirstName(String firstName) {
+    public StudentPage withFirstName(String firstName) {
         type(txtFirstName, firstName);
+        return this;
     }
 
-    private void typeLastName(String lastName) {
+    public StudentPage andLastName(String lastName) {
         txtLastName.clear();
         txtLastName.sendKeys(lastName);
+        return this;
     }
 
-    private void selectDayOfBirth(String selectDay) {
+    public StudentPage withDayOfBirth(String selectDay) {
         dtpDateOfBirth.click();
 
         new WebDriverWait(driver, Duration.ofSeconds(8))
@@ -75,66 +72,54 @@ public class StudentPage extends MainPage {
                 break;
             }
         }
+        return this;
     }
 
-    private void selectCountry(String country) {
+    public StudentPage andSelectCountry(String country) {
         new Select(drpCountry).selectByVisibleText(country);
+        return this;
     }
 
-    private void typeCurrentAddress(String currentAddress) {
+    public StudentPage andCurrentAddress(String currentAddress) {
         txtCurrentAddress.clear();
         txtCurrentAddress.sendKeys(currentAddress);
+        return this;
     }
 
-    //public void studentPersonalDetails(String gender, String firstName, String lastName, String dob, String Countr, String currentAddres){
-    public void studentPersonalDetails(String... details) {
-        selectGender(details[0]);
-        typeFirstName(details[1]);
-        typeLastName(details[2]);
-        selectDayOfBirth(details[3]);
-        selectCountry(details[4]);
-        typeCurrentAddress(details[5]);
-    }
-
-    private void typeEmailAddress(String email) {
+    public StudentPage emailAddressAs(String email) {
         type(txtEmail, email);
+        return this;
     }
 
-    private void typeUserName(String userName) {
+    public StudentPage withUserName(String userName) {
         type(txtUserName, userName);
+        return this;
     }
 
-    private void typePassword(String pass) {
+    public StudentPage withPassword(String pass) {
         type(txtPassword, pass);
+        return this;
     }
 
-    private void typeConfirmPassword(String confirmPass) {
+    public StudentPage andConfirmPassword(String confirmPass) {
         type(txtConfirmPass, confirmPass);
+        return this;
     }
 
-    public void accountInformation(Map<String, String> accountInfo) {
-        typeEmailAddress(accountInfo.get("email"));
-        typeUserName(accountInfo.get("user"));
-        typePassword(accountInfo.get("password"));
-        typeConfirmPassword(accountInfo.get("password"));
-    }
 
-    public void schoolDetails(String rolNumber) {
+    public StudentPage schoolDetails(String rolNumber) {
         type(txtRollNumber, rolNumber);
         txtRollNumber.submit();
+        return this;
     }
 
-    public void validateStudentIsAdded(String studentName) {
+    public StudentPage validateStudentIsAdded(String studentName) {
         new WebDriverWait(driver, Duration.ofSeconds(8))
                 .until(ExpectedConditions.visibilityOfAllElements(trStudentRows));
 
         WebElement newStudentRow = trStudentRows.get(trStudentRows.size() - 1);
         Assert.assertTrue(newStudentRow.getText().contains(studentName));
         System.out.println(newStudentRow.getText() + " contains " + studentName);
-    }
-
-    public void deleteStudent() {
-        deleteRow();
-        confirmWindow();
+        return this;
     }
 }
