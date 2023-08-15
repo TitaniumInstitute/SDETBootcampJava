@@ -1,11 +1,10 @@
 package com.ti.selenium.patronesdediseño.testcases;
 
+import com.ti.base.BasePage;
 import com.ti.base.BrowserType;
 import com.ti.base.DriverFactory;
 import com.ti.selenium.patronesdediseño.pf.LoginPage;
-import com.ti.selenium.patronesdediseño.pf.MenuPage;
 import com.ti.selenium.patronesdediseño.pf.StudentPage;
-import org.openqa.selenium.TimeoutException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -13,12 +12,9 @@ import org.testng.annotations.Parameters;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BaseTest {
+public class BaseTest extends BasePage {
     String baseUrl = "https://demosite.titaniuminstitute.com.mx/wp-admin/admin.php?page=sch-dashboard";
     Map<String, String> userCredentials = new HashMap<>();
-    LoginPage loginPage;
-    MenuPage menuPage;
-    StudentPage studentPage;
 
     @BeforeClass
     @Parameters("browser")
@@ -26,25 +22,27 @@ public class BaseTest {
         DriverFactory.getInstance().setDriver(BrowserType.valueOf(browser));
         DriverFactory.getInstance().getDriver().navigate().to(baseUrl);
 
+        //Arrange
         userCredentials.put("username", "admin");
         userCredentials.put("password", "G3-ySzY%");
 
-        loginPage = new LoginPage();
-        menuPage = new MenuPage();
-        studentPage = new StudentPage();
+        //loginPage = new LoginPage();
+        //Act
+        actualPage = getInstance(LoginPage.class);
 
-        loginPage
+        actualPage.as(LoginPage.class)
                 .loginAs(userCredentials.get("username"))
-                .withPassword(userCredentials.get("password"))
+                .with()
+                .password(userCredentials.get("password"))
                 .andRememberMe(true)
-                .login();
+                .submitLogin();
     }
 
     @AfterClass
     void turnDown() {
         try {
-            studentPage.deleteLastRow().andConfirmWindow();
-        } catch (TimeoutException te) {
+            actualPage.as(StudentPage.class).deleteLastRow().andConfirmWindow();
+        } catch (Exception te) {
 
         }
         DriverFactory.getInstance().removeDriver();

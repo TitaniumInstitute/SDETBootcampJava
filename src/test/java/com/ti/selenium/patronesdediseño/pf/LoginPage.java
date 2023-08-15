@@ -24,7 +24,13 @@ public class LoginPage extends MainPage {
         return this;
     }
 
-    public LoginPage withPassword(String password) {
+    //Syntatic Sugar
+    public LoginPage with() {
+        return this;
+    }
+
+
+    public LoginPage password(String password) {
         txtPassword.clear();
         txtPassword.sendKeys(password);
         return this;
@@ -37,9 +43,9 @@ public class LoginPage extends MainPage {
         return this;
     }
 
-    public LoginPage login() {
+    public MainPage submitLogin() {
         btnLogin.click();
-        return this;
+        return (MainPage) (actualPage = getInstance(MainPage.class));
     }
 
 }

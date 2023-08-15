@@ -7,8 +7,13 @@ public class MenuPage extends MainPage {
     @FindBy(linkText = "Students")
     private WebElement navStudents;
 
-    public MenuPage goToStudents() {
+    public StudentPage goToStudents() {
         navStudents.click();
-        return this;
+        return (StudentPage) (actualPage = getInstance(StudentPage.class));
     }
+
+    /*public TeacherPage gotToTeachers(){
+        navTeachers.click();
+        return new TeachersPage();
+    }*/
 }

@@ -1,5 +1,7 @@
 package com.ti.selenium.patronesdediseño.testcases;
 
+import com.ti.selenium.patronesdediseño.pf.MenuPage;
+import com.ti.selenium.patronesdediseño.pf.StudentPage;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -12,14 +14,17 @@ public class StudentsTest extends BaseTest {
 
     @Test
     void verifyNewStudentIsCreated() {
+        //Arrange
         studentAccountInfo.put("email", "test" + Math.random() + "@gmail.com");
         studentAccountInfo.put("user", "testuser");
         studentAccountInfo.put("password", "test123");
 
-        menuPage.goToStudents().andCreateNew();
+        actualPage = getInstance(MenuPage.class);
+        actualPage.as(MenuPage.class).goToStudents().andCreateNew();
 
+        //Act
         //Student Personal Details
-        studentPage
+        actualPage.as(StudentPage.class)
                 .genderAs(studentPersonalDetailsData[0])
                 .withFirstName(studentPersonalDetailsData[1])
                 .andLastName(studentPersonalDetailsData[2])
@@ -29,16 +34,16 @@ public class StudentsTest extends BaseTest {
 
 
         //Student Account Information
-        studentPage
+        actualPage.as(StudentPage.class)
                 .emailAddressAs(studentAccountInfo.get("email"))
                 .withUserName(studentAccountInfo.get("user"))
                 .withPassword(studentAccountInfo.get("password"))
                 .andConfirmPassword(studentAccountInfo.get("password"));
 
         //Student School Details
-        studentPage.schoolDetails("B-0012");
+        actualPage.as(StudentPage.class).schoolDetails("B-0012");
 
-        //Validate
-        studentPage.validateStudentIsAdded(studentPersonalDetailsData[1]);
+        //Assert
+        actualPage.as(StudentPage.class).validateStudentIsAdded(studentPersonalDetailsData[1]);
     }
 }

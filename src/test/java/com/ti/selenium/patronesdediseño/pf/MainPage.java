@@ -1,10 +1,10 @@
 package com.ti.selenium.patronesdediseño.pf;
 
+import com.ti.base.BasePage;
 import com.ti.base.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -12,7 +12,7 @@ import org.testng.Assert;
 import java.time.Duration;
 import java.util.List;
 
-public class MainPage {
+public class MainPage extends BasePage {
     WebDriver driver = DriverFactory.getInstance().getDriver();
 
     @FindBy(className = "wpsp-schoolname")
@@ -26,10 +26,6 @@ public class MainPage {
 
     @FindBy(xpath = "//*[text()='Ok']")
     private WebElement btoOk;
-
-    protected MainPage() {
-        PageFactory.initElements(driver, this);
-    }
 
     protected void type(WebElement element, String strType) {
         element.clear();
