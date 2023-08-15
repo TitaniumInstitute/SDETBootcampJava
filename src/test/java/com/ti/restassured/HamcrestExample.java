@@ -1,4 +1,4 @@
-package com.restassured;
+package com.ti.restassured;
 
 import com.google.common.collect.Lists;
 import org.testng.annotations.Test;
