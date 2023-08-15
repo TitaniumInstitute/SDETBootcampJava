@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
+import java.util.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -11,6 +12,7 @@ import static org.hamcrest.Matchers.*;
 public class HamcrestExample {
 
     String favoriteCar;
+    List<String> list;
 
     //Text Matchers
     @Test
@@ -103,10 +105,61 @@ public class HamcrestExample {
 
     @Test
     void givenBigDecimalCloseTo() {
-        //2.0 (+/-) 1.5 to 2.5
-        assertThat(new BigDecimal("1.8"), is(closeTo(new BigDecimal("2.0"), new BigDecimal("0.5"))));
+        //2.0 (+/-) 1.2 to 2.8
+        assertThat(new BigDecimal("4.6"), is(closeTo(new BigDecimal("2.0"), new BigDecimal("0.8"))));
     }
 
     // Collections Matchers
-    
+    @Test
+    void ListEmpty() {
+        list = new ArrayList<>();
+        assertThat(list, empty());
+    }
+
+    @Test
+    void ListSizeMatch() {
+        list = Arrays.asList("Superman", "Batman", "Wonder-Woman", "Zatana");
+        System.out.println(list.size());
+        assertThat(list, hasSize(4));
+        assertThat(list, iterableWithSize(4));
+    }
+
+    @Test
+    void listContainsAllValuesInSameOrder() {
+        list = Arrays.asList("Superman", "Batman", "Wonder-Woman", "Zatana");
+        assertThat(list, contains("Superman", "Batman", "Wonder-Woman", "Zatana"));
+    }
+
+    @Test
+    void listContainsAllValuesInAnyOrder() {
+        list = Arrays.asList("Superman", "Batman", "Wonder-Woman", "Zatana");
+        assertThat(list, containsInAnyOrder("Zatana", "Wonder-Woman", "Batman", "Superman"));
+    }
+
+    @Test
+    void listCotainsValuesInRelativeOrder() {
+        list = Arrays.asList("Superman", "Batman", "Wonder-Woman", "Zatana");
+        assertThat(list, containsInRelativeOrder("Batman", "Wonder-Woman"));
+    }
+
+    @Test
+    void listWhenContainsGivenValue() {
+        list = Arrays.asList("Superman", "Batman", "Wonder-Woman", "Zatana");
+        assertThat(list, hasItem(equalTo("Wonder-Woman")));
+        assertThat(list, hasItem(startsWith("Sup")));
+        assertThat(list, hasItem(endsWith("ana")));
+    }
+
+    @Test
+    void listWhenContainsOneOrMoreValues() {
+        list = Arrays.asList("Superman", "Batman", "Wonder-Woman", "Zatana");
+        assertThat(list, hasItems(startsWith("Won"), endsWith("man"), equalTo("Zatana")));
+
+    }
+
+    @Test
+    void mapEmpty() {
+        Map<String, String> myMap = new HashMap<>();
+        assertThat(myMap, is(anEmptyMap()));
+    }
 }
