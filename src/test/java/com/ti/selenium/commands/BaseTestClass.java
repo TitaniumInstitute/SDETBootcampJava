@@ -1,7 +1,7 @@
 package com.ti.selenium.commands;
 
-import com.ti.base.BrowserType;
-import com.ti.base.DriverFactory;
+import com.ti.baseuiweb.BrowserType;
+import com.ti.baseuiweb.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;

@@ -1,8 +1,8 @@
 package com.ti.selenium.patronesdediseño.testcases;
 
-import com.ti.base.BasePage;
-import com.ti.base.BrowserType;
-import com.ti.base.DriverFactory;
+import com.ti.baseuiweb.BasePage;
+import com.ti.baseuiweb.BrowserType;
+import com.ti.baseuiweb.DriverFactory;
 import com.ti.selenium.patronesdediseño.pf.LoginPage;
 import com.ti.selenium.patronesdediseño.pf.StudentPage;
 import org.testng.annotations.AfterClass;

@@ -1,7 +1,7 @@
 package com.ti.selenium.patronesdediseño.pf;
 
-import com.ti.base.BasePage;
-import com.ti.base.DriverFactory;
+import com.ti.baseuiweb.BasePage;
+import com.ti.baseuiweb.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

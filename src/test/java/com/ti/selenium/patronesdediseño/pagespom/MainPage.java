@@ -1,6 +1,6 @@
 package com.ti.selenium.patronesdediseño.pagespom;
 
-import com.ti.base.DriverFactory;
+import com.ti.baseuiweb.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
