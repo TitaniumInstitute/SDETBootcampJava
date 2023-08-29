@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test preserve-order="true" name="User Endpoint Tests">
+        <parameter name="endpoint" value="users/"></parameter>
+        <classes>
+            <class name="com.ti.restassured.demo.testcases.UserTest"></class>
+        </classes>
+    </test>
+</suite>
