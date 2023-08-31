@@ -17,6 +17,7 @@ public class BaseTest {
     @BeforeTest
     void setup() throws Exception {
         service = new AppiumServiceBuilder()
+                .withArgument(() -> "--use-plugins", "element-wait@2.0.3,gestures@3.0.0")
                 .withIPAddress("127.0.0.1")
                 .usingPort(4723)
                 .build();
