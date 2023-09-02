@@ -1,4 +1,4 @@
-package com.ti.appium;
+package com.ti.appium.android;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -10,8 +10,8 @@ import org.testng.annotations.BeforeTest;
 
 import java.net.URI;
 
-public class BaseTest {
-    AndroidDriver driver;
+public class AndroidBaseTest {
+    protected AndroidDriver driver;
     AppiumDriverLocalService service;
 
     @BeforeTest
@@ -26,7 +26,7 @@ public class BaseTest {
         UiAutomator2Options options = new UiAutomator2Options();
         options.setPlatformName("Android");
         options.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
-        options.setDeviceName("Pixel 7 Pro API 33");
+        options.setDeviceName("S21 plus API 30");
         options.setApp(System.getProperty("user.dir") + "/src/test/resources/apps/ApiDemos-debug.apk");
 
         driver = new AndroidDriver(new URI("http://127.0.0.1:4723/").toURL(), options);

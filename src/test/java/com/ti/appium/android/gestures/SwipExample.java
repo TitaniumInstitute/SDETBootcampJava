@@ -1,6 +1,6 @@
-package com.ti.appium.gestures;
+package com.ti.appium.android.gestures;
 
-import com.ti.appium.BaseTest;
+import com.ti.appium.android.AndroidBaseTest;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.Map;
 
-public class SwipExample extends BaseTest {
+public class SwipExample extends AndroidBaseTest {
 
     @Test
     void swipeTest() {

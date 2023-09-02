@@ -1,4 +1,4 @@
-package com.ti.appium;
+package com.ti.appium.android;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;

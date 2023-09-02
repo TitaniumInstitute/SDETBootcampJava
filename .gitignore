@@ -1,6 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/java,maven,intellij+all,intellij,intellij+iml,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,maven,intellij+all,intellij,intellij+iml,eclipse
-src/test/resources/apps/TestApp 3.app/*
+src/test/resources/apps/TestApp.app/*
 src/test/resources/apps/UIKitCatalog.app/*
 results/*
 ### Eclipse ###

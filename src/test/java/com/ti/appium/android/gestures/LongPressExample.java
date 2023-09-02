@@ -1,6 +1,6 @@
-package com.ti.appium.gestures;
+package com.ti.appium.android.gestures;
 
-import com.ti.appium.BaseTest;
+import com.ti.appium.android.AndroidBaseTest;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.Map;
 
-public class LongPressExample extends BaseTest {
+public class LongPressExample extends AndroidBaseTest {
     @Test
     void longPressTest() throws InterruptedException {
         driver.findElement(AppiumBy.accessibilityId("Views")).click();

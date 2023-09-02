@@ -1,9 +1,10 @@
-package com.ti.appium;
+package com.ti.appium.android;
 
+import com.ti.appium.android.AndroidBaseTest;
 import io.appium.java_client.AppiumBy;
 import org.testng.annotations.Test;
 
-public class LocatorsExampleExample extends BaseTest {
+public class LocatorsExample extends AndroidBaseTest {
     @Test
     void verifyWifiSettingsAreModified() throws InterruptedException {
         driver.findElement(AppiumBy.accessibilityId("Preference")).click();
