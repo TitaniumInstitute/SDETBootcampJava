@@ -1,10 +1,9 @@
 package com.ti.appium.ios;
 
-import com.aventstack.extentreports.App;
 import io.appium.java_client.AppiumBy;
 import org.testng.annotations.Test;
 
-public class LocatorsExample extends IOSBaseTes{
+public class LocatorsExample extends IOSBaseTest {
 
     @Test
     void locatorsIosTest() throws InterruptedException {

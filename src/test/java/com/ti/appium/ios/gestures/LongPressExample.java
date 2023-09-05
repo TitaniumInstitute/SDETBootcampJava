@@ -1,6 +1,6 @@
 package com.ti.appium.ios.gestures;
 
-import com.ti.appium.ios.IOSBaseTes;
+import com.ti.appium.ios.IOSBaseTest;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LongPressExample extends IOSBaseTes {
+public class LongPressExample extends IOSBaseTest {
 
     @Test
     void longPressExample(){
