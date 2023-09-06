@@ -32,8 +32,8 @@ public class LoginScreen extends BaseScreen {
         return this;
     }
 
-    public LoginScreen submitLogin(){
+    public HomeScreen submitLogin(){
         btnLogin.click();
-        return this;
+        return (HomeScreen) (actualScreen = getInstance(HomeScreen.class));
     }
 }
