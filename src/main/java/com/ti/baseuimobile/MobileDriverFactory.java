@@ -1,5 +1,6 @@
 package com.ti.baseuimobile;
 
+import com.ti.baseuimobile.model.DriverOptions;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -18,42 +19,11 @@ import java.time.Duration;
 
 public class MobileDriverFactory {
     private static MobileDriverFactory instance = new MobileDriverFactory();
-
-    private static String appName;
-
-    private static String deviceName;
-
-    private static String appActivity;
-
-    private static UiAutomator2Options androidOptions;
-    private static XCUITestOptions iosOptions;
+    private UiAutomator2Options androidOptions;
+    private XCUITestOptions iosOptions;
 
     public static MobileDriverFactory getInstance() {
         return instance;
-    }
-
-    private static String getAppName() {
-        return appName;
-    }
-
-    public static void setAppName(String appName) {
-        MobileDriverFactory.appName = System.getProperty("user.dir")+"/src/test/resources/apps/"+appName;
-    }
-
-    private static String getDeviceName() {
-        return deviceName;
-    }
-
-    public static void setDeviceName(String deviceName) {
-        MobileDriverFactory.deviceName = deviceName;
-    }
-
-    private static String getAppActivity() {
-        return appActivity;
-    }
-
-    public static void setAppActivity(String appActivity) {
-        MobileDriverFactory.appActivity = appActivity;
     }
 
     ThreadLocal<AppiumDriver> appiumDriver = new ThreadLocal<>();
@@ -63,15 +33,15 @@ public class MobileDriverFactory {
     }
 
 
-    public AppiumDriver setMobileDriver(DeviceOSType deviceOS, AppiumDriverLocalService server){
+    public void setMobileDriver(DeviceOSType deviceOS, DriverOptions options){
         switch (deviceOS){
             case ANDROID -> {
                 androidOptions = new UiAutomator2Options();
                 androidOptions.setPlatformName("Android");
                 androidOptions.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
-                androidOptions.setDeviceName(getDeviceName());
-                androidOptions.setApp(getAppName());
-                androidOptions.setAppWaitActivity(getAppActivity());
+                androidOptions.setDeviceName(options.getDeviceName());
+                androidOptions.setApp(options.getAppName());
+                androidOptions.setAppWaitActivity(options.getAppActivity());
 
                 try {
                     appiumDriver.set(new AndroidDriver(new URI("http://127.0.0.1:4723/").toURL(), androidOptions));
@@ -84,8 +54,8 @@ public class MobileDriverFactory {
             case IOS -> {
                 iosOptions = new XCUITestOptions();
                 iosOptions.setAutomationName(AutomationName.IOS_XCUI_TEST);
-                iosOptions.setDeviceName(getDeviceName());
-                iosOptions.setApp(getAppName());
+                iosOptions.setDeviceName(options.getDeviceName());
+                iosOptions.setApp(options.getAppName());
                 iosOptions.setWdaLaunchTimeout(Duration.ofSeconds(30));
 
                 try {
@@ -97,7 +67,6 @@ public class MobileDriverFactory {
                 }
             }
         }
-        return appiumDriver.get();
     }
 
     public void removeMobileDriver(){

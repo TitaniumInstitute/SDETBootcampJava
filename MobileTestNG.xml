@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="All Test Suite" parallel="tests">
     <test name="Android Test">
         <parameter name="appName" value="Android.SauceLabs.Mobile.Sample.apk"/>
         <parameter name="deviceName" value="S21 plus API 30"/>
         <parameter name="ipAddress" value="127.0.0.1"/>
         <parameter name="deviceOsType" value="ANDROID"/>
         <classes>
-            <class name="com.ti.appium.patronesdediseño.MobileDriverFactoryExample"></class>
+            <class name="com.ti.appium.patronesdediseño.testcases.SauceLabLoginTests"></class>
         </classes>
     </test>
 
@@ -17,7 +17,7 @@
         <parameter name="ipAddress" value="127.0.0.1"/>
         <parameter name="deviceOsType" value="IOS"/>
         <classes>
-            <class name="com.ti.appium.patronesdediseño.MobileDriverFactoryExample"></class>
+            <class name="com.ti.appium.patronesdediseño.testcases.SauceLabLoginTests"></class>
         </classes>
     </test>
 </suite>
