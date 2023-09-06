@@ -9,7 +9,7 @@ import org.testng.Assert;
 public class HomeScreen extends BaseScreen {
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='PRODUCTS']")
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[`label == 'PRODUCTOS'`][2]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='PRODUCTOS']")
     private RemoteWebElement lblProducts;
 
     protected String getProductsTitle(){
