@@ -1,4 +1,4 @@
-package com.ti.frameworks.datadriven.testcases;
+package com.ti.frameworks.datadriven.testcases.examples;
 
 import com.ti.jdbc.DataBaseInfo;
 import org.testng.annotations.DataProvider;

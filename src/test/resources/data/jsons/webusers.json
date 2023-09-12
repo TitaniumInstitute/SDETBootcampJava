@@ -1,0 +1,25 @@
+{
+  "validUsers": [
+    {
+      "user": "admin",
+      "password": "G3-ySzY%"
+    }
+  ],
+  "invalidUsers": [
+    {
+      "user": "admin",
+      "password": "",
+      "error": "Error: The password field is empty."
+    },
+    {
+      "user": "",
+      "password": "G3-ySzY%",
+      "error": "Error: The username field is empty."
+    },
+    {
+      "user": "Test",
+      "password": "G3-ySzY%",
+      "error": "Error: The username Test is not registered on this site. If you are unsure of your username, try your email address instead."
+    }
+  ]
+}
