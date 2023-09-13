@@ -9,6 +9,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
@@ -18,6 +20,7 @@ import static com.ti.baseapi.RestAssuredUtils.putWithBody;
 import static com.ti.baseapi.ServiceFactory.getResponse;
 import static com.ti.baseapi.ServiceFactory.setEndPoint;
 import static com.ti.frameworks.datadriven.dataproviders.JSONArrayData.getJsonTableArray;
+import static com.ti.frameworks.datadriven.dataproviders.SQLArrayData.getQueryTableArray;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
@@ -26,8 +29,8 @@ public class ResreqUserSQLTest extends BaseApiTest {
     int id;
 
     @DataProvider
-    public Object[][] getJSONProviderData(){
-        return getJsonTableArray("apiusers.json", "update user");
+    public Object[][] getSQLProviderData() throws SQLException, IOException {
+        return getQueryTableArray("resreq", "resrequsers.sql");
     }
     @BeforeMethod
     @Parameters("endpoint")
@@ -49,7 +52,7 @@ public class ResreqUserSQLTest extends BaseApiTest {
         assertThat(userFirstName, equalTo("Janet"));
     }
 
-    @Test(priority = 2, dataProvider = "getJSONProviderData")
+    @Test(priority = 2, dataProvider = "getSQLProviderData")
     void verifyUserIsUpdated(LinkedHashMap<String,String> updateUser) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu-MM");//"uuuu-MM-dd");
         LocalDateTime now = LocalDateTime.now();

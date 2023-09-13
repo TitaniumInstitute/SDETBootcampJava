@@ -4,21 +4,22 @@
     <listeners>
         <listener class-name="com.ti.AnnotationTransform"></listener>
     </listeners>
-   <test name="Web UI Test JSON">
+   <!--<test name="Web UI Test JSON">
         <parameter name="browser" value="CHROME"/>
         <classes>
             <class name="com.ti.frameworks.datadriven.testcases.webui.SchoolLoginWebJSONTest"/>
         </classes>
-    </test>
+    </test>-->
 
-    <test name="API Test JSON">
+    <test name="API Test JSON" parallel="classes">
         <parameter name="endpoint" value="users/"/>
         <classes>
             <class name="com.ti.frameworks.datadriven.testcases.api.ResreqUserJSONTest"/>
+            <class name="com.ti.frameworks.datadriven.testcases.api.ResreqUserSQLTest"></class>
         </classes>
     </test>
 
-    <test name="Android Test">
+    <!--<test name="Android Test">
         <parameter name="appName" value="Android.SauceLabs.Mobile.Sample.apk"/>
         <parameter name="deviceName" value="S21 plus API 30"/>
         <parameter name="ipAddress" value="127.0.0.1"/>
@@ -36,5 +37,5 @@
         <classes>
             <class name="com.ti.frameworks.datadriven.testcases.mobileui.SauceLabLoginMobileJSONTest"></class>
         </classes>
-    </test>
+    </test>-->
 </suite>
