@@ -10,17 +10,18 @@ import java.util.LinkedHashMap;
 
 import static com.ti.frameworks.datadriven.dataproviders.JSONArrayData.getJsonTableArray;
 
-public class SchoolLoginWebTestJSON extends BaseWebTest {
+public class SchoolLoginWebJSONTest extends BaseWebTest {
     Object[][] testArray;
     @DataProvider
     public Object[][] getJSONProviderData(Method method){
         if (method.getName().equals("loginWithRightCredentials")){
-            testArray = getJsonTableArray("webusers.json", "validUsers");;
+            testArray = getJsonTableArray("webusers.json", "validUsers");
         }
 
         if (method.getName().equals("loginWithWrongCredentials")){
-            testArray = getJsonTableArray("webusers.json", "invalidUsers");;
+            testArray = getJsonTableArray("webusers.json", "invalidUsers");
         }
+
         return testArray;
     }
     @Test(priority = 2,dataProvider = "getJSONProviderData")

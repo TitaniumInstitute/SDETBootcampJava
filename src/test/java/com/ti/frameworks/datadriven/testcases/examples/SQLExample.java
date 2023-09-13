@@ -13,7 +13,7 @@ import static com.ti.frameworks.datadriven.dataproviders.SQLArrayData.getQueryTa
 public class SQLExample {
     @DataProvider
     public Object[][] getSQLProviderData() throws SQLException, IOException {
-        return getQueryTableArray(DataBaseInfo.DBNAME.dbConn, "studentsdetail.sql");
+        return getQueryTableArray(DataBaseInfo.DBNAME.dbConn, "validstudents.sql");
     }
 
     @Test(dataProvider = "getSQLProviderData")

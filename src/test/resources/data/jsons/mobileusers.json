@@ -1,0 +1,28 @@
+{
+  "validUsers": [
+    {
+      "user": "standard_user",
+      "password": "secret_sauce"
+    }
+  ],
+  "invalidUsers": [
+    {
+      "user": "standard_user",
+      "password": "",
+      "errorIOS": "Contraseña es requerida",
+      "errorAndroid": "Password is required"
+    },
+    {
+      "user": "",
+      "password": "secret_sauce",
+      "errorIOS": "Usuario es requerido",
+      "errorAndroid": "Username is required"
+    },
+    {
+      "user": "Test",
+      "password": "G3-ySzY%",
+      "errorIOS": "El usuario y contraseña no coinciden con ningun usuario en este servicio.",
+      "errorAndroid": "Username and password do not match any user in this service."
+    }
+  ]
+}
