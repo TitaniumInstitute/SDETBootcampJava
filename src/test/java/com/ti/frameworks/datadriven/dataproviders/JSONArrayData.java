@@ -11,7 +11,6 @@ import java.util.LinkedHashMap;
 import static com.ti.frameworks.config.Constants.JSONS_FOLDER;
 
 public class JSONArrayData {
-    private static JsonArray jsonArray;
 
     private static JsonArray getJsonArray(String filename, String jsonObj){
         try {
@@ -26,17 +25,16 @@ public class JSONArrayData {
     }
 
     public static Object[][] getJsonTableArray(String filename, String jsonObj){
-        jsonArray = getJsonArray(filename,jsonObj);
+        JsonArray jsonArray = getJsonArray(filename, jsonObj);
 
+        assert jsonArray != null;
         Object[][] testData = new Object[jsonArray.size()][1];
 
         for (int i = 0; i < jsonArray.size(); i++){
             JsonObject jsonInsideObj = jsonArray.get(i).getAsJsonObject();
             LinkedHashMap<Object, Object> map = new LinkedHashMap<>();
 
-            jsonInsideObj.keySet().forEach(key->{
-                map.put(key, jsonInsideObj.get(key).getAsString());
-            });
+            jsonInsideObj.keySet().forEach(key-> map.put(key, jsonInsideObj.get(key).getAsString()));
 
             testData[i][0] = map;
         }

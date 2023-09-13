@@ -43,6 +43,7 @@ public class MainPage extends BasePage {
         return spnSchoolTitle.getText();
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     public MainPage verifySchoolName() {
         Assert.assertEquals(getSchoolName(), "Titanium School");
         return this;

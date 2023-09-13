@@ -12,6 +12,7 @@ public class MenuScreen extends BaseScreen {
     @CacheLookup
     private RemoteWebElement mnLogout;
 
+    @SuppressWarnings("UnusedReturnValue")
     public MenuScreen andLogOut(){
         mnLogout.click();
         return this;

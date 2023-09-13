@@ -22,6 +22,7 @@ public class HomeScreen extends BaseScreen {
         return lblProducts.getText();
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     public HomeScreen verifyProductsText(){
         assert getProductsTitle().contains("PRODUCT");
         //Assert.assertEquals(getProductsTitle(),"PRODUCTOS");

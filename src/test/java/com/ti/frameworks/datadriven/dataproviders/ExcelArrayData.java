@@ -11,7 +11,6 @@ import java.util.List;
 import static com.ti.frameworks.config.Constants.WORKBOOKS_FOLDER;
 
 public class ExcelArrayData {
-    private static Sheet sheet;
     private static Workbook workbook;
     private static final DataFormatter dataFormatter = new DataFormatter();
 
@@ -52,7 +51,7 @@ public class ExcelArrayData {
 
     public static Object[][] getExcelTableArray(String excelWorkbook, String excelWorkSheet) throws IOException {
         readExcel(excelWorkbook);
-        sheet = getWorkSheet(excelWorkSheet);
+        Sheet sheet = getWorkSheet(excelWorkSheet);
         Iterable<Row> rows = sheet::rowIterator;
         List<LinkedHashMap<Object, Object>> results = new ArrayList<>();
         boolean header = true;

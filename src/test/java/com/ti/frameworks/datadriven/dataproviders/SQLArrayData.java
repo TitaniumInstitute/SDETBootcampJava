@@ -16,7 +16,6 @@ import static com.ti.frameworks.config.Constants.QUERIES_FOLDER;
 public class SQLArrayData {
     private static Connection connection;
     private static Statement statement;
-    private static ResultSet resultSet;
 
     private static Connection getDBConnectio(String dbName) throws SQLException {
         return connection = DriverManager.getConnection(
@@ -52,7 +51,7 @@ public class SQLArrayData {
     }
 
     public static Object[][] getQueryTableArray(String dbName, String sqlFile) throws SQLException, IOException {
-        resultSet = getResultSet(dbName, sqlFile);
+        ResultSet resultSet = getResultSet(dbName, sqlFile);
         int colCount = resultSet.getMetaData().getColumnCount();
         resultSet.last();
         resultSet.beforeFirst();
@@ -62,7 +61,7 @@ public class SQLArrayData {
         while (resultSet.next()){
             LinkedHashMap<Object,Object> resultMap = new LinkedHashMap<>();
             for (int i = 1; i <= colCount; i++) {
-                resultMap.put(resultSet.getMetaData().getColumnName(i),resultSet.getObject(i));
+                resultMap.put(resultSet.getMetaData().getColumnName(i), resultSet.getObject(i));
             }
             results.add(resultMap);
         }

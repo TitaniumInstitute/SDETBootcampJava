@@ -11,9 +11,10 @@ public class BaseModel {
         return model.cast(objModel);
     }
 
+    @SuppressWarnings("unchecked")
     public <TModel extends BaseModel> TModel as(Class<TModel> model) {
         try {
-            return (TModel) this;
+            return (TModel)this;
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
