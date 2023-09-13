@@ -1,4 +1,4 @@
-package com.ti.frameworks.datadriven.models;
+package com.ti.frameworks.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ti.baseapi.BaseModel;

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import static com.ti.frameworks.datadriven.config.Constants.WORKBOOKS_FOLDER;
+import static com.ti.frameworks.config.Constants.WORKBOOKS_FOLDER;
 
 public class ExcelArrayData {
     private static Sheet sheet;

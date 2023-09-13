@@ -1,7 +1,7 @@
 package com.ti.frameworks.datadriven.testcases.mobileui;
 
-import com.ti.frameworks.datadriven.screen.HomeScreen;
-import com.ti.frameworks.datadriven.screen.LoginScreen;
+import com.ti.frameworks.screen.HomeScreen;
+import com.ti.frameworks.screen.LoginScreen;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

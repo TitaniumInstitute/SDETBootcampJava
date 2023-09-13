@@ -1,4 +1,4 @@
-package com.ti.frameworks.datadriven.screen;
+package com.ti.frameworks.screen;
 
 import com.ti.baseuimobile.BaseScreen;
 import io.appium.java_client.pagefactory.AndroidFindBy;

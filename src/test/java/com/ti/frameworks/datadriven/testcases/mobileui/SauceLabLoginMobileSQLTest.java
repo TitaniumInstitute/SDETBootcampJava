@@ -1,8 +1,8 @@
 package com.ti.frameworks.datadriven.testcases.mobileui;
 
-import com.ti.frameworks.datadriven.screen.HomeScreen;
-import com.ti.frameworks.datadriven.screen.LoginScreen;
-import com.ti.frameworks.datadriven.screen.MenuScreen;
+import com.ti.frameworks.screen.HomeScreen;
+import com.ti.frameworks.screen.LoginScreen;
+import com.ti.frameworks.screen.MenuScreen;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -11,7 +11,6 @@ import java.lang.reflect.Method;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
 
-import static com.ti.frameworks.datadriven.dataproviders.JSONArrayData.getJsonTableArray;
 import static com.ti.frameworks.datadriven.dataproviders.SQLArrayData.getQueryTableArray;
 
 public class SauceLabLoginMobileSQLTest extends BaseMobileTest {

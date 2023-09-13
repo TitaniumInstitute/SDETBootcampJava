@@ -1,4 +1,4 @@
-package com.ti.frameworks.datadriven.models.user;
+package com.ti.frameworks.models.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ti.baseapi.BaseModel;

@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.LinkedHashMap;
 
-import static com.ti.frameworks.datadriven.config.Constants.JSONS_FOLDER;
+import static com.ti.frameworks.config.Constants.JSONS_FOLDER;
 
 public class JSONArrayData {
     private static JsonArray jsonArray;

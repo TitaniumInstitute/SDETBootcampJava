@@ -1,8 +1,8 @@
 package com.ti.frameworks.datadriven.testcases.api;
 
 import com.ti.baseapi.ServiceFactory;
-import com.ti.frameworks.datadriven.models.user.UserModel;
-import com.ti.frameworks.datadriven.models.user.UsersModel;
+import com.ti.frameworks.models.user.UserModel;
+import com.ti.frameworks.models.user.UsersModel;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -19,7 +19,6 @@ import static com.ti.baseapi.RestAssuredUtils.deleteElement;
 import static com.ti.baseapi.RestAssuredUtils.putWithBody;
 import static com.ti.baseapi.ServiceFactory.getResponse;
 import static com.ti.baseapi.ServiceFactory.setEndPoint;
-import static com.ti.frameworks.datadriven.dataproviders.JSONArrayData.getJsonTableArray;
 import static com.ti.frameworks.datadriven.dataproviders.SQLArrayData.getQueryTableArray;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;

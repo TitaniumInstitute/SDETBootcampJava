@@ -2,8 +2,8 @@ package com.ti.frameworks.datadriven.testcases.api;
 
 import com.ti.baseapi.ServiceFactory;
 
-import com.ti.frameworks.datadriven.models.user.UserModel;
-import com.ti.frameworks.datadriven.models.user.UsersModel;
+import com.ti.frameworks.models.user.UserModel;
+import com.ti.frameworks.models.user.UsersModel;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.*;
 

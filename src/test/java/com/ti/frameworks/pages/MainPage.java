@@ -1,4 +1,4 @@
-package com.ti.frameworks.datadriven.pages;
+package com.ti.frameworks.pages;
 
 import com.ti.baseuiweb.BasePage;
 import com.ti.baseuiweb.DriverFactory;

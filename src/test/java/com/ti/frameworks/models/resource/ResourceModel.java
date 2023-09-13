@@ -1,7 +1,7 @@
-package com.ti.frameworks.datadriven.models.resource;
+package com.ti.frameworks.models.resource;
 
 import com.ti.baseapi.BaseModel;
-import com.ti.frameworks.datadriven.models.SupportModel;
+import com.ti.frameworks.models.SupportModel;
 import lombok.Data;
 
 @Data

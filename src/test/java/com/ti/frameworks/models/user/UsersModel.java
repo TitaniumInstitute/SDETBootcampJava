@@ -1,6 +1,6 @@
-package com.ti.frameworks.datadriven.models.user;
+package com.ti.frameworks.models.user;
 
-import com.ti.frameworks.datadriven.models.PageModel;
+import com.ti.frameworks.models.PageModel;
 import lombok.Data;
 
 import java.util.List;

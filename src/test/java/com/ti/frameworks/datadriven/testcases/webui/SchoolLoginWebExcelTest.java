@@ -1,7 +1,7 @@
 package com.ti.frameworks.datadriven.testcases.webui;
 
-import com.ti.frameworks.datadriven.pages.LoginPage;
-import com.ti.frameworks.datadriven.pages.MainPage;
+import com.ti.frameworks.pages.LoginPage;
+import com.ti.frameworks.pages.MainPage;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -10,7 +10,6 @@ import java.lang.reflect.Method;
 import java.util.LinkedHashMap;
 
 import static com.ti.frameworks.datadriven.dataproviders.ExcelArrayData.getExcelTableArray;
-import static com.ti.frameworks.datadriven.dataproviders.JSONArrayData.getJsonTableArray;
 
 public class SchoolLoginWebExcelTest extends BaseWebTest {
     Object[][] testArray;

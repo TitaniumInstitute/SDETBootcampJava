@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
 
-import static com.ti.frameworks.datadriven.config.Constants.QUERIES_FOLDER;
+import static com.ti.frameworks.config.Constants.QUERIES_FOLDER;
 
 public class SQLArrayData {
     private static Connection connection;

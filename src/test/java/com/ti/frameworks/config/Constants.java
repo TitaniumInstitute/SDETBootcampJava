@@ -1,4 +1,4 @@
-package com.ti.frameworks.datadriven.config;
+package com.ti.frameworks.config;
 
 public class Constants {
     public static final String RESOURCES_FOLDER = System.getProperty("user.dir")+"/src/test/resources";
