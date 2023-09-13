@@ -1,1 +1,1 @@
-SELECT * FROM wpschool.Users;;
+SELECT * FROM wpschool.Users;

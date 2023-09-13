@@ -13,6 +13,11 @@ public class HomeScreen extends BaseScreen {
     @CacheLookup
     private RemoteWebElement lblProducts;
 
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc='test-Menu']")
+    @iOSXCUITFindBy(accessibility = "test-Menu")
+    @CacheLookup
+    private RemoteWebElement hmbMenu;
+
     protected String getProductsTitle(){
         return lblProducts.getText();
     }
@@ -21,5 +26,10 @@ public class HomeScreen extends BaseScreen {
         assert getProductsTitle().contains("PRODUCT");
         //Assert.assertEquals(getProductsTitle(),"PRODUCTOS");
         return this;
+    }
+
+    public MenuScreen displayMenu(){
+        hmbMenu.click();
+        return (MenuScreen) (actualScreen = getInstance(MenuScreen.class));
     }
 }

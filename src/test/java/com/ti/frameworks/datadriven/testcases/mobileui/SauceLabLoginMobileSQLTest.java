@@ -2,56 +2,66 @@ package com.ti.frameworks.datadriven.testcases.mobileui;
 
 import com.ti.frameworks.datadriven.screen.HomeScreen;
 import com.ti.frameworks.datadriven.screen.LoginScreen;
+import com.ti.frameworks.datadriven.screen.MenuScreen;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.sql.SQLException;
 import java.util.LinkedHashMap;
 
 import static com.ti.frameworks.datadriven.dataproviders.JSONArrayData.getJsonTableArray;
+import static com.ti.frameworks.datadriven.dataproviders.SQLArrayData.getQueryTableArray;
 
 public class SauceLabLoginMobileSQLTest extends BaseMobileTest {
     Object[][] testArray;
     @DataProvider
-    public Object[][] getJSONProviderData(Method method){
+    public Object[][] getSQLProviderData(Method method) throws SQLException, IOException {
         if (method.getName().equals("loginWithRightCredentials")){
-            testArray = getJsonTableArray("mobileusers.json", "validUsers");
+            testArray = getQueryTableArray("saucelab", "validsaucelabusers.sql");
         }
 
         if (method.getName().equals("loginWithWrongCredentials")){
-            testArray = getJsonTableArray("mobileusers.json", "invalidUsers");
+            testArray = getQueryTableArray("saucelab", "invalidsaucelabusers.sql");
         }
 
         return testArray;
     }
-    @Test(priority = 2,dataProvider = "getJSONProviderData")
+    @Test(priority = 2,dataProvider = "getSQLProviderData")
     void loginWithRightCredentials(LinkedHashMap<String, String> userData) {
-        actualScreen = getInstance(LoginScreen.class);
+        try {
+            actualScreen = getInstance(HomeScreen.class);
+            actualScreen = actualScreen.as(HomeScreen.class).displayMenu();
+            actualScreen.as(MenuScreen.class).andLogOut();
+        }catch (Exception e){
+            actualScreen = getInstance(LoginScreen.class);
 
-        actualScreen.as(LoginScreen.class)
-                .loginAs(userData.values().toArray()[0].toString())
-                .withPassword(userData.values().toArray()[1].toString())
-                .submitLogin();
+            actualScreen.as(LoginScreen.class)
+                    .loginAs(userData.values().toArray()[1].toString())
+                    .withPassword(userData.values().toArray()[2].toString())
+                    .submitLogin();
 
-        actualScreen.as(HomeScreen.class).verifyProductsText();
+            actualScreen.as(HomeScreen.class).verifyProductsText();
+        }
     }
 
-    @Test(priority = 1, dataProvider = "getJSONProviderData")
+    @Test(priority = 1, dataProvider = "getSQLProviderData")
     void loginWithWrongCredentials(LinkedHashMap<String, String> userData) {
         actualScreen = getInstance(LoginScreen.class);
 
         actualScreen.as(LoginScreen.class)
-                .loginAs(userData.values().toArray()[0].toString())
-                .withPassword(userData.values().toArray()[1].toString())
+                .loginAs(userData.values().toArray()[1].toString())
+                .withPassword(userData.values().toArray()[2].toString())
                 .submitLogin();
 
         actualScreen = getInstance(LoginScreen.class);
         String errorMessage = actualScreen.as(LoginScreen.class).getError();
 
         if (errorMessage.toLowerCase().contains("password") || errorMessage.toLowerCase().contains("username")){
-            actualScreen.as(LoginScreen.class).verifyErrorText(userData.values().toArray()[3].toString());
+            actualScreen.as(LoginScreen.class).verifyErrorText(userData.values().toArray()[4].toString());
         }else {
-            actualScreen.as(LoginScreen.class).verifyErrorText(userData.values().toArray()[2].toString());
+            actualScreen.as(LoginScreen.class).verifyErrorText(userData.values().toArray()[3].toString());
         }
     }
 }

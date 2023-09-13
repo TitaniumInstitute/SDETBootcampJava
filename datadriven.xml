@@ -4,28 +4,33 @@
     <listeners>
         <listener class-name="com.ti.AnnotationTransform"></listener>
     </listeners>
-   <!--<test name="Web UI Test JSON">
+   <test name="Web UI Test" parallel="classes">
         <parameter name="browser" value="CHROME"/>
         <classes>
             <class name="com.ti.frameworks.datadriven.testcases.webui.SchoolLoginWebJSONTest"/>
-        </classes>
-    </test>-->
-
-    <test name="API Test JSON" parallel="classes">
-        <parameter name="endpoint" value="users/"/>
-        <classes>
-            <class name="com.ti.frameworks.datadriven.testcases.api.ResreqUserJSONTest"/>
-            <class name="com.ti.frameworks.datadriven.testcases.api.ResreqUserSQLTest"></class>
+            <class name="com.ti.frameworks.datadriven.testcases.webui.SchoolLoginWebSQLTest"/>
+            <class name="com.ti.frameworks.datadriven.testcases.webui.SchoolLoginWebExcelTest"/>
         </classes>
     </test>
 
-    <!--<test name="Android Test">
+    <test name="API Test">
+        <parameter name="endpoint" value="users/"/>
+        <classes>
+            <class name="com.ti.frameworks.datadriven.testcases.api.ResreqUserJSONTest"/>
+            <class name="com.ti.frameworks.datadriven.testcases.api.ResreqUserSQLTest"/>
+            <class name="com.ti.frameworks.datadriven.testcases.api.ResreqUserExcelTest"/>
+        </classes>
+    </test>
+
+    <test name="Android Test">
         <parameter name="appName" value="Android.SauceLabs.Mobile.Sample.apk"/>
         <parameter name="deviceName" value="S21 plus API 30"/>
         <parameter name="ipAddress" value="127.0.0.1"/>
         <parameter name="deviceOsType" value="ANDROID"/>
         <classes>
-            <class name="com.ti.frameworks.datadriven.testcases.mobileui.SauceLabLoginMobileJSONTest"></class>
+            <class name="com.ti.frameworks.datadriven.testcases.mobileui.SauceLabLoginMobileJSONTest"/>
+             <class name="com.ti.frameworks.datadriven.testcases.mobileui.SauceLabLoginMobileSQLTest"/>
+            <class name="com.ti.frameworks.datadriven.testcases.mobileui.SauceLabLoginMobileExcelTest"/>
         </classes>
     </test>
 
@@ -35,7 +40,9 @@
         <parameter name="ipAddress" value="127.0.0.1"/>
         <parameter name="deviceOsType" value="IOS"/>
         <classes>
-            <class name="com.ti.frameworks.datadriven.testcases.mobileui.SauceLabLoginMobileJSONTest"></class>
+            <class name="com.ti.frameworks.datadriven.testcases.mobileui.SauceLabLoginMobileJSONTest"/>
+            <class name="com.ti.frameworks.datadriven.testcases.mobileui.SauceLabLoginMobileSQLTest"/>
+            <class name="com.ti.frameworks.datadriven.testcases.mobileui.SauceLabLoginMobileExcelTest"/>
         </classes>
-    </test>-->
+    </test>
 </suite>

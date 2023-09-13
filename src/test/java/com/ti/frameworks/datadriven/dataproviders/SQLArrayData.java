@@ -61,7 +61,7 @@ public class SQLArrayData {
 
         while (resultSet.next()){
             LinkedHashMap<Object,Object> resultMap = new LinkedHashMap<>();
-            for (int i = 1; i < colCount; i++) {
+            for (int i = 1; i <= colCount; i++) {
                 resultMap.put(resultSet.getMetaData().getColumnName(i),resultSet.getObject(i));
             }
             results.add(resultMap);
